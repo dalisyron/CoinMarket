@@ -6,17 +6,16 @@ import me.moallemi.coinmarket.domain.repository.CoinMarketRepository
 import java.lang.ref.WeakReference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
+import me.moallemi.coinmarket.Injector
 
-class HomePresenter(private val repository: CoinMarketRepository) : HomeContract.Presenter {
+class HomePresenter(private val coinMarketRepository: CoinMarketRepository) : HomeContract.Presenter {
 
     lateinit var view : WeakReference<HomeContract.View>
     private var compositeDisposable = CompositeDisposable()
 
     override fun onViewCreated() {
 
-        val repository = me.moallemi.coinmarket.Injector.provideCryptocurrencyRepository()
-
-        repository.getLatest()
+        coinMarketRepository.getLatest()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSuccess {

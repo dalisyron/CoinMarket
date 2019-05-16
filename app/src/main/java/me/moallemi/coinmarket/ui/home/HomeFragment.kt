@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import me.moallemi.coinmarket.Injector
 import me.moallemi.coinmarket.R
 import me.moallemi.coinmarket.data.entity.CurrencyInfoEntity
 import me.moallemi.coinmarket.domain.model.CurrencyInfo
@@ -18,7 +19,7 @@ class HomeFragment : Fragment(), HomeContract.View {
     private lateinit var recyclerView : RecyclerView
 
     private val presenter : HomeContract.Presenter by lazy {
-        HomePresenter(me.moallemi.coinmarket.Injector.provideCryptocurrencyRepository()).apply {
+        HomePresenter(Injector.provideCryptocurrencyRepository()).apply {
             this.view = WeakReference(this@HomeFragment)
         }
     }
