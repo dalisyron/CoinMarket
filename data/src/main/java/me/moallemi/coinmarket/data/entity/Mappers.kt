@@ -9,7 +9,8 @@ fun CurrencyInfoEntity.toCurrencyInfo() = CurrencyInfo(
     name = name,
     symbol = symbol,
     slug = slug,
-    quote = quote.toQuote()
+    quote = quote.toQuote(),
+    cmcRank = cmcRank
 )
 
 fun QuoteEntity.toQuote() = Quote(

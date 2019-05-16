@@ -4,5 +4,6 @@ data class CurrencyInfo(
     val name: String,
     val symbol: String,
     val slug: String,
-    val quote: Quote
+    val quote: Quote,
+    val cmcRank : Int
 )
