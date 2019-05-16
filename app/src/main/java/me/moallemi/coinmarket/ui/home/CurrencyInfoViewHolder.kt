@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import me.moallemi.coinmarket.R
 import me.moallemi.coinmarket.data.entity.CurrencyInfoEntity
+import me.moallemi.coinmarket.data.entity.toFixedDecimal
 import me.moallemi.coinmarket.domain.model.CurrencyInfo
 
 class CurrencyInfoViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
@@ -21,7 +22,3 @@ class CurrencyInfoViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView
     }
 }
 
-fun Double?.toFixedDecimal(count : Int): Double {
-    return String.format("%.${count}f", this).toDouble()
-
-}

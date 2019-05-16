@@ -26,3 +26,8 @@ fun UsdEntity.toUsd() = Usd(
     price = price,
     volume24h = volume24h
 )
+
+
+fun Double?.toFixedDecimal(count : Int): Double {
+    return String.format("%.${count}f", this).toDouble()
+}
