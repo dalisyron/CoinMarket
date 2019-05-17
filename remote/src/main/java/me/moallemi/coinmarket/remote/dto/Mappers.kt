@@ -13,7 +13,7 @@ fun CurrencyInfoDto.toCurrencyInfoEntity() = CurrencyInfoEntity(
     symbol = symbol,
     slug = slug,
     quote = quote.toQuoteEntity(),
-    cmcRank = cmcRank?:0
+    cmcRank = cmcRank ?: 0
 )
 
 fun QuoteDto.toQuoteEntity() = QuoteEntity(

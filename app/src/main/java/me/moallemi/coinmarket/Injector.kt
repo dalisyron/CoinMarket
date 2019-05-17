@@ -6,7 +6,7 @@ import me.moallemi.coinmarket.remote.datasource.CoinMarketRemoteDataSourceImpl
 
 
 object Injector {
-    fun provideCryptocurrencyRepository() : CoinMarketRepositoryImpl{
+    fun provideCryptocurrencyRepository(): CoinMarketRepositoryImpl {
         return CoinMarketRepositoryImpl(CoinMarketRemoteDataSourceImpl(CoinMarketService.create()))
     }
 }

@@ -1,7 +1,7 @@
 package me.moallemi.coinmarket
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import me.moallemi.coinmarket.ui.MyApp
 import me.moallemi.coinmarket.ui.home.HomeFragment
 

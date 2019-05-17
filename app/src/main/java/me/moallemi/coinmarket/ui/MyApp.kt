@@ -1,7 +1,6 @@
 package me.moallemi.coinmarket.ui
 
 import android.app.Application
-import dagger.Component
 import me.moallemi.coinmarket.di.AppComponent
 import me.moallemi.coinmarket.di.AppModule
 import me.moallemi.coinmarket.di.DaggerAppComponent
@@ -14,6 +13,6 @@ class MyApp : Application() {
     }
 
     companion object {
-        lateinit var component : AppComponent
+        lateinit var component: AppComponent
     }
 }

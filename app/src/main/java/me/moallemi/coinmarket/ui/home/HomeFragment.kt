@@ -8,17 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import me.moallemi.coinmarket.Injector
 import me.moallemi.coinmarket.R
-import me.moallemi.coinmarket.data.entity.CurrencyInfoEntity
 import me.moallemi.coinmarket.domain.model.CurrencyInfo
 import me.moallemi.coinmarket.ui.MyApp
-
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 
 class HomeFragment : Fragment(), HomeContract.View {
-    private lateinit var recyclerView : RecyclerView
+    private lateinit var recyclerView: RecyclerView
 
     @Inject
     lateinit var presenter: HomePresenter
@@ -27,6 +24,7 @@ class HomeFragment : Fragment(), HomeContract.View {
         super.onCreate(savedInstanceState)
         MyApp.component.inject(this)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +32,7 @@ class HomeFragment : Fragment(), HomeContract.View {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_list, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.view = WeakReference(this)
@@ -51,7 +50,7 @@ class HomeFragment : Fragment(), HomeContract.View {
         presenter.onViewCreated()
     }
 
-    override fun showCryptocurrencies(items : List<CurrencyInfo?>) {
+    override fun showCryptocurrencies(items: List<CurrencyInfo?>) {
         recyclerView.adapter = CryptocurrencyAdapter(items)
     }
 

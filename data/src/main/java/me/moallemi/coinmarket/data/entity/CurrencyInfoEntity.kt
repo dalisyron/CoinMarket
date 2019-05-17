@@ -5,5 +5,5 @@ data class CurrencyInfoEntity(
     val symbol: String,
     val slug: String,
     val quote: QuoteEntity,
-    var cmcRank : Int
+    var cmcRank: Int
 )

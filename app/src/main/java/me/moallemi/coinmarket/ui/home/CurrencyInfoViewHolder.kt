@@ -4,15 +4,14 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import me.moallemi.coinmarket.R
-import me.moallemi.coinmarket.data.entity.CurrencyInfoEntity
 import me.moallemi.coinmarket.data.entity.toFixedDecimal
 import me.moallemi.coinmarket.domain.model.CurrencyInfo
 
-class CurrencyInfoViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-    val name : TextView = itemView.findViewById(R.id.name)
-    val price : TextView = itemView.findViewById(R.id.price)
-    val percentChange24 : TextView = itemView.findViewById(R.id.percentChange24)
-    val rank : TextView = itemView.findViewById(R.id.rank)
+class CurrencyInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    val name: TextView = itemView.findViewById(R.id.name)
+    val price: TextView = itemView.findViewById(R.id.price)
+    val percentChange24: TextView = itemView.findViewById(R.id.percentChange24)
+    val rank: TextView = itemView.findViewById(R.id.rank)
 
     fun bind(currencyInfo: CurrencyInfo?) {
         name.text = currencyInfo?.name

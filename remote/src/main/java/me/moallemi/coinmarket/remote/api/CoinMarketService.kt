@@ -7,7 +7,6 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import javax.inject.Inject
 
 interface CoinMarketService {
     @Headers("X-CMC_PRO_API_KEY: fbd6208e-741b-41a0-813f-2b0ffb902356")

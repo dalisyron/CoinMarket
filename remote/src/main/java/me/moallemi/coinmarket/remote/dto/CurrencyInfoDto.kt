@@ -15,7 +15,7 @@ data class CurrencyInfoDto(
     @SerializedName("platform") val platform: Any?,
     @SerializedName("quote") val quote: QuoteDto,
     @SerializedName("slug") val slug: String,
-    @SerializedName("symbol") val symbol: String    ,
+    @SerializedName("symbol") val symbol: String,
     @SerializedName("tags") val tags: List<String?>?,
     @SerializedName("total_supply") val totalSupply: Double?
 )

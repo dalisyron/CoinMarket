@@ -8,8 +8,8 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [AppModule::class, DataModule::class])
-interface AppComponent{
-    fun inject(mainActivity : MainActivity)
+interface AppComponent {
+    fun inject(mainActivity: MainActivity)
     fun inject(homeFragment: HomeFragment)
     fun inject(homePresenter: HomePresenter)
 }

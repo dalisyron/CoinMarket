@@ -7,23 +7,27 @@ import me.moallemi.coinmarket.data.repository.CoinMarketRepositoryImpl
 import me.moallemi.coinmarket.domain.repository.CoinMarketRepository
 import me.moallemi.coinmarket.remote.api.CoinMarketService
 import me.moallemi.coinmarket.remote.datasource.CoinMarketRemoteDataSourceImpl
-import javax.inject.Inject
 import javax.inject.Singleton
 
 @Module
 class DataModule {
-    @Provides @Singleton
-    fun providesCoinMarketRepository(coinMarketRepository: CoinMarketRepositoryImpl) : CoinMarketRepository {
+    @Provides
+    @Singleton
+    fun providesCoinMarketRepository(coinMarketRepository: CoinMarketRepositoryImpl): CoinMarketRepository {
         return coinMarketRepository
     }
-    @Provides @Singleton
+
+    @Provides
+    @Singleton
     fun providesCoinMarketRemoteDataSource(coinMarketRemoteDataSource: CoinMarketRemoteDataSourceImpl)
-    : CoinMarketRemoteDataSource {
+            : CoinMarketRemoteDataSource {
         return coinMarketRemoteDataSource
     }
-    @Provides @Singleton
+
+    @Provides
+    @Singleton
     fun providesCoinMarketService()
-    : CoinMarketService {
+            : CoinMarketService {
         return CoinMarketService.create()
     }
 }

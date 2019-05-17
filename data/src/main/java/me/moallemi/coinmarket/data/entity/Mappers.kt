@@ -28,6 +28,6 @@ fun UsdEntity.toUsd() = Usd(
 )
 
 
-fun Double?.toFixedDecimal(count : Int): Double {
+fun Double?.toFixedDecimal(count: Int): Double {
     return String.format("%.${count}f", this).toDouble()
 }

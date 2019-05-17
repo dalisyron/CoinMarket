@@ -11,7 +11,7 @@ class AppModule(val myApp: MyApp) {
 
     @Provides
     @Singleton
-    fun provideContext() : Context {
+    fun provideContext(): Context {
         return myApp.applicationContext
     }
 
