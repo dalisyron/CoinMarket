@@ -7,8 +7,9 @@ import java.lang.ref.WeakReference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 import me.moallemi.coinmarket.Injector
+import javax.inject.Inject
 
-class HomePresenter(private val coinMarketRepository: CoinMarketRepository) : HomeContract.Presenter {
+class HomePresenter @Inject constructor (private val coinMarketRepository: CoinMarketRepository) : HomeContract.Presenter {
 
     lateinit var view : WeakReference<HomeContract.View>
     private var compositeDisposable = CompositeDisposable()

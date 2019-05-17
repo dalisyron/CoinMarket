@@ -1,4 +1,5 @@
 apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -13,4 +14,6 @@ dependencies {
 
     testImplementation "junit:junit:$testLibraries.junit"
     testImplementation "io.mockk:mockk:$testLibraries.mockk"
+    implementation 'com.google.dagger:dagger:2.16'
+    kapt 'com.google.dagger:dagger-compiler:2.16'
 }

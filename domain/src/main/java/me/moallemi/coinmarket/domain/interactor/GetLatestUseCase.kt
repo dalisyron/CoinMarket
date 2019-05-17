@@ -7,14 +7,4 @@ import me.moallemi.coinmarket.domain.interactor.base.SingleUseCase
 import me.moallemi.coinmarket.domain.model.CurrencyInfo
 import me.moallemi.coinmarket.domain.repository.CoinMarketRepository
 
-class GetLatestUseCase(
-    private val coinMarketRepository: CoinMarketRepository,
-    useCaseExecutorThread: UseCaseExecutorThread,
-    postExecutorThread: PostExecutorThread
-) :
-    SingleUseCase<Nothing, List<CurrencyInfo>>(useCaseExecutorThread, postExecutorThread) {
-
-    override fun buildSingle(params: Nothing): Single<List<CurrencyInfo>> {
-        return coinMarketRepository.getLatest()
-    }
-}
+class GetLatestUseCase()

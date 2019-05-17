@@ -12,16 +12,20 @@ import me.moallemi.coinmarket.Injector
 import me.moallemi.coinmarket.R
 import me.moallemi.coinmarket.data.entity.CurrencyInfoEntity
 import me.moallemi.coinmarket.domain.model.CurrencyInfo
+import me.moallemi.coinmarket.ui.MyApp
 
 import java.lang.ref.WeakReference
+import javax.inject.Inject
 
 class HomeFragment : Fragment(), HomeContract.View {
     private lateinit var recyclerView : RecyclerView
 
-    private val presenter : HomeContract.Presenter by lazy {
-        HomePresenter(Injector.provideCryptocurrencyRepository()).apply {
-            this.view = WeakReference(this@HomeFragment)
-        }
+    @Inject
+    lateinit var presenter: HomePresenter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        MyApp.component.inject(this)
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +36,8 @@ class HomeFragment : Fragment(), HomeContract.View {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter.view = WeakReference(this)
+
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(view.context)

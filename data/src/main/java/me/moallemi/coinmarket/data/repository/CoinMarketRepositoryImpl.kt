@@ -5,8 +5,9 @@ import me.moallemi.coinmarket.data.datasource.CoinMarketRemoteDataSource
 import me.moallemi.coinmarket.data.entity.toCurrencyInfo
 import me.moallemi.coinmarket.domain.model.CurrencyInfo
 import me.moallemi.coinmarket.domain.repository.CoinMarketRepository
+import javax.inject.Inject
 
-class CoinMarketRepositoryImpl(
+class CoinMarketRepositoryImpl @Inject constructor(
     private val coinMarketRemoteDataSource: CoinMarketRemoteDataSource
 ) : CoinMarketRepository {
 
