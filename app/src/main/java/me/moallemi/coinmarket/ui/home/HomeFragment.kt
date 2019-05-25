@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,13 +13,17 @@ import me.moallemi.coinmarket.R
 import me.moallemi.coinmarket.domain.model.CurrencyInfo
 import me.moallemi.coinmarket.ui.MyApp
 import java.lang.ref.WeakReference
+import java.util.*
 import javax.inject.Inject
 
-class HomeFragment : Fragment(), HomeContract.View {
+class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
 
     @Inject
-    lateinit var presenter: HomePresenter
+    lateinit var homeViewModelFactory : HomeViewModelFactory
+
+    @Inject
+    lateinit var homeViewModel : HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +40,6 @@ class HomeFragment : Fragment(), HomeContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter.view = WeakReference(this)
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.apply {
@@ -47,16 +51,20 @@ class HomeFragment : Fragment(), HomeContract.View {
                 )
             )
         }
-        presenter.onViewCreated()
+        homeViewModel.currencies.observe(this@HomeFragment, Observer {
+            currencyInfoList -> showCryptocurrencies(currencyInfoList)
+
+        })
+        homeViewModel.onViewCreated()
     }
 
-    override fun showCryptocurrencies(items: List<CurrencyInfo?>) {
+    fun showCryptocurrencies(items: List<CurrencyInfo?>) {
         recyclerView.adapter = CryptocurrencyAdapter(items)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        presenter.onDestroyView()
+        homeViewModel.onDestroy()
     }
 
 }
