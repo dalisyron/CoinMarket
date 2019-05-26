@@ -9,7 +9,6 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 
 interface CoinMarketService {
-    @Headers("X-CMC_PRO_API_KEY: fbd6208e-741b-41a0-813f-2b0ffb902356")
     @GET("/v1/cryptocurrency/listings/latest")
     fun getLatest(): Single<ListingsDto>
 
